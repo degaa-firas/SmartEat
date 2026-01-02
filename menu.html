@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartEat - Digital Menu</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Inline overrides for Menu specific layout if needed, though most will go to style.css */
+        body {
+            overflow: hidden;
+            /* Main scroll handled by menu-container */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu-layout">
+        <!-- Sidebar Navigation (Categories) -->
+        <aside class="menu-sidebar">
+            <div class="brand">
+                <span class="material-symbols-rounded">restaurant_menu</span>
+                <h1 data-i18n="menu_title">SmartEat</h1>
+            </div>
+
+            <div class="lang-switch" style="margin-bottom: 20px; padding: 0 20px;">
+                <span style="cursor: pointer; margin-right: 10px;" class="active">EN</span>
+                <span style="cursor: pointer; margin-right: 10px;">FR</span>
+                <span style="cursor: pointer;">AR</span>
+            </div>
+
+            <div class="table-info-card">
+                <span class="material-symbols-rounded">table_restaurant</span>
+                <div>
+                    <span class="label" data-i18n="your_table">Your Table</span>
+                    <span class="value">Table 05</span>
+                </div>
+            </div>
+
+            <nav class="category-nav">
+                <button class="cat-btn active" data-category="all">
+                    <span class="material-symbols-rounded">grid_view</span>
+                    <span data-i18n="category_all">All Items</span>
+                </button>
+                <button class="cat-btn" data-category="starter">
+                    <span class="material-symbols-rounded">soup_kitchen</span>
+                    <span data-i18n="category_starter">Starters</span>
+                </button>
+                <button class="cat-btn" data-category="main">
+                    <span class="material-symbols-rounded">dinner_dining</span>
+                    <span data-i18n="category_main">Mains</span>
+                </button>
+                <button class="cat-btn" data-category="dessert">
+                    <span class="material-symbols-rounded">icecream</span>
+                    <span data-i18n="category_dessert">Desserts</span>
+                </button>
+                <button class="cat-btn" data-category="drink">
+                    <span class="material-symbols-rounded">local_bar</span>
+                    <span data-i18n="category_drink">Drinks</span>
+                </button>
+            </nav>
+
+            <div class="illustration-area">
+                <!-- Decorative element or promo -->
+            </div>
+        </aside>
+
+        <!-- Main Menu Area -->
+        <main class="menu-content">
+            <header class="menu-header">
+                <div class="greeting">
+                    <h2 data-i18n="greeting_menu">Good Evening! 👋</h2>
+                    <p data-i18n="greeting_sub">Ready to order delicious food?</p>
+                </div>
+                <div class="search-wrap">
+                    <span class="material-symbols-rounded">search</span>
+                    <input type="text" placeholder="Search for dishes..." data-i18n="search_menu">
+                </div>
+            </header>
+
+            <div class="menu-grid" id="menuGrid">
+                <!-- Menu Items injected by JS -->
+            </div>
+        </main>
+
+        <!-- Current Order / Cart Sidebar -->
+        <aside class="order-sidebar">
+            <div class="order-header">
+                <h3 data-i18n="current_order">Current Order</h3>
+                <span class="order-id">#Order-New</span>
+            </div>
+
+            <div class="order-items-list" id="cartItems">
+                <!-- Cart Items injected by JS -->
+                <div class="empty-state">
+                    <span class="material-symbols-rounded">shopping_basket</span>
+                    <p data-i18n="empty_cart">Your cart is empty</p>
+                    <small data-i18n="tap_add">Tap + to add items</small>
+                </div>
+
+                <div class="order-summary">
+                    <div class="summary-row">
+                        <span data-i18n="subtotal">Subtotal</span>
+                        <span id="subtotalPrice">0 DZD</span>
+                    </div>
+                    <div class="summary-row">
+                        <span data-i18n="tax">Tax (5%)</span>
+                        <span id="taxPrice">0 DZD</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span data-i18n="total">Total</span>
+                        <span id="totalPrice">0 DZD</span>
+                    </div>
+
+                    <button class="btn-primary full-width" id="placeOrderBtn" disabled>
+                        <span data-i18n="place_order">Place Order</span>
+                        <span class="material-symbols-rounded">arrow_forward</span>
+                    </button>
+                </div>
+        </aside>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <span class="material-symbols-rounded">check_circle</span>
+            </div>
+            <h2 data-i18n="order_placed">Order Placed!</h2>
+            <p data-i18n="order_success_msg">The kitchen has received your order and started preparing it.</p>
+            <button class="btn-primary" onclick="window.location.reload()" data-i18n="order_more">Order More</button>
+        </div>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

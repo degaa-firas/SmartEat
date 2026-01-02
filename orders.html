@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartEat - Orders</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <span class="material-symbols-rounded logo-icon">restaurant_menu</span>
+                <h1 class="logo-text">SmartEat</h1>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <span class="material-symbols-rounded">dashboard</span>
+                    <span data-i18n="nav_dashboard">Dashboard</span>
+                </a>
+                <a href="inventory.html" class="nav-item">
+                    <span class="material-symbols-rounded">inventory_2</span>
+                    <span>Inventory</span>
+                </a>
+                <a href="ai-insights.html" class="nav-item ai-feature">
+                    <span class="material-symbols-rounded">psychology</span>
+                    <span>AI Insights</span>
+                    <span class="badge-ai">NEW</span>
+                </a>
+                <a href="orders.html" class="nav-item active">
+                    <span class="material-symbols-rounded">orders</span>
+                    <span>Orders</span>
+                </a>
+                <a href="team.html" class="nav-item">
+                    <span class="material-symbols-rounded">groups</span>
+                    <span>Team</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Chef+Ahmed&background=0D8ABC&color=fff" alt="Profile"
+                        class="avatar">
+                    <div class="user-info">
+                        <p class="user-name">Chef Ahmed</p>
+                        <p class="user-role" data-i18n="user_role">Manager</p>
+                    </div>
+                </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="page-title">
+                    <h2 data-i18n="kds_title">Kitchen Display System</h2>
+                    <span class="live-indicator"><span class="dot"></span> <span data-i18n="live">LIVE</span></span>
+                </div>
+
+                <div class="top-actions">
+                    <div class="smart-toggle">
+                        <div class="smart-toggle">
+                            <span class="label" data-i18n="smart_batching">Smart Batching</span>
+                            <label class="switch small">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <button class="icon-btn">
+                            <span class="material-symbols-rounded">notifications</span>
+                            <span class="badge-dot"></span>
+                        </button>
+                    </div>
+            </header>
+
+            <!-- Orders Kanban -->
+            <div class="kanban-board">
+
+                <!-- Column: New Orders -->
+                <div class="kanban-column">
+                    <div class="column-header">
+                        <h3><span data-i18n="col_new">New Orders</span> <span class="count">3</span></h3>
+                        <div class="column-line new"></div>
+                    </div>
+
+                    <div class="order-card high-priority">
+                        <div class="card-top">
+                            <span class="order-id">#1024</span>
+                            <span class="timer critical">12:05</span>
+                        </div>
+                        <div class="table-info">Table 5 • 4 Guests</div>
+                        <ul class="order-items">
+                            <li>2x Chorba Frik</li>
+                            <li>1x Bourek (Meat)</li>
+                            <li>1x Couscous Royal</li>
+                        </ul>
+                        <div class="ai-tag">
+                            <span class="material-symbols-rounded">star</span>
+                            VIP: Prefers extra spicy
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn-action accept">Start Prep</button>
+                        </div>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="card-top">
+                            <span class="order-id">#1025</span>
+                            <span class="timer">02:15</span>
+                        </div>
+                        <div class="table-info">Delivery • UberEats</div>
+                        <ul class="order-items">
+                            <li>1x Pizza Carrée</li>
+                            <li>2x Coca Cola</li>
+                        </ul>
+                        <div class="card-actions">
+                            <button class="btn-action accept">Start Prep</button>
+                        </div>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="card-top">
+                            <span class="order-id">#1026</span>
+                            <span class="timer">00:45</span>
+                        </div>
+                        <div class="table-info">Table 2 • 2 Guests</div>
+                        <ul class="order-items">
+                            <li>1x Grilled Sea Bream</li>
+                            <li>1x Salad Mechouia</li>
+                        </ul>
+                        <div class="card-actions">
+                            <button class="btn-action accept">Start Prep</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column: Preparing -->
+                <div class="kanban-column">
+                    <div class="column-header">
+                        <h3><span data-i18n="col_prep">Preparing</span> <span class="count">2</span>
+                        </h3>
+                        <div class="column-line prep"></div>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="card-top">
+                            <span class="order-id">#1022</span>
+                            <span class="timer warn">18:30</span>
+                        </div>
+                        <div class="table-info">Table 8 • Family</div>
+                        <ul class="order-items">
+                            <li>1x Mthewem</li>
+                            <li>1x Tajine Zitoune</li>
+                            <li>3x Khobz Dar</li>
+                        </ul>
+                        <div class="chef-assign">
+                            <img src="https://ui-avatars.com/api/?name=Ali&background=random" class="chef-avatar">
+                            <span>Chef Ali</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn-action ready">Mark Ready</button>
+                        </div>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="card-top">
+                            <span class="order-id">#1023</span>
+                            <span class="timer">05:10</span>
+                        </div>
+                        <div class="table-info">Takeaway • Walk-in</div>
+                        <ul class="order-items">
+                            <li>6x Tacos (Chicken)</li>
+                            <li>Fries (Large)</li>
+                        </ul>
+                        <div class="chef-assign">
+                            <img src="https://ui-avatars.com/api/?name=Sami&background=random" class="chef-avatar">
+                            <span>Chef Sami</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn-action ready">Mark Ready</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column: Ready -->
+                <div class="kanban-column">
+                    <div class="column-header">
+                        <h3><span data-i18n="col_ready">Ready to Serve</span> <span class="count">1</span></h3>
+                        <div class="column-line ready"></div>
+                    </div>
+
+                    <div class="order-card ready-glow">
+                        <div class="card-top">
+                            <span class="order-id">#1020</span>
+                            <span class="status-badge">READY</span>
+                        </div>
+                        <div class="table-info">Table 1 • VIP</div>
+                        <ul class="order-items">
+                            <li>1x Chakhchoukha</li>
+                            <li>1x Lben</li>
+                        </ul>
+                        <div class="card-actions">
+                            <button class="btn-action serve">Serve Now</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartEat - AI Insights</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet" />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <span class="material-symbols-rounded logo-icon">restaurant_menu</span>
+                <h1 class="logo-text">SmartEat</h1>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <span class="material-symbols-rounded">dashboard</span>
+                    <span data-i18n="nav_dashboard">Dashboard</span>
+                </a>
+                <a href="inventory.html" class="nav-item">
+                    <span class="material-symbols-rounded">inventory_2</span>
+                    <span>Inventory</span>
+                </a>
+                <a href="ai-insights.html" class="nav-item active ai-feature">
+                    <span class="material-symbols-rounded">psychology</span>
+                    <span>AI Insights</span>
+                    <span class="badge-ai">NEW</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <span class="material-symbols-rounded">orders</span>
+                    <span>Orders</span>
+                </a>
+                <a href="team.html" class="nav-item">
+                    <span class="material-symbols-rounded">groups</span>
+                    <span>Team</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Chef+Ahmed&background=0D8ABC&color=fff" alt="Profile"
+                        class="avatar">
+                    <div class="user-info">
+                        <p class="user-name">Chef Ahmed</p>
+                        <p class="user-role">Manager</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="page-title">
+                    <h2 data-i18n="ai_page_title">AI Analytics & Predictions</h2>
+                </div>
+
+                <div class="top-actions">
+                    <div class="date-range">
+                        <span class="material-symbols-rounded">calendar_today</span>
+                        <span data-i18n="date_range">Last 30 Days</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- AI Content -->
+            <div class="dashboard-grid">
+
+                <!-- Prediction Card -->
+                <div class="ai-insight-card" style="grid-column: 1 / 3;">
+                    <div class="ai-header">
+                        <div class="ai-label">
+                            <span class="material-symbols-rounded">trending_up</span>
+                            <span data-i18n="demand_forecast">DEMAND FORECAST</span>
+                        </div>
+                    </div>
+                    <div class="ai-body">
+                        <h3 data-i18n="forecast_title">Weekend Surge Expected</h3>
+                        <p data-i18n="forecast_desc">Local event "Algiers Food Festival" is happening this weekend.
+                            Expect <strong>40%
+                                increase</strong> in foot traffic.</p>
+                    </div>
+                    <div class="chart-container" style="height: 200px; margin-top: 20px;">
+                        <canvas id="forecastChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Menu Optimization -->
+                <div class="stat-card" style="grid-column: 3 / 4; flex-direction: column; align-items: flex-start;">
+                    <div class="ai-label" style="margin-bottom: 16px;">
+                        <span class="material-symbols-rounded">menu_book</span>
+                        <span data-i18n="menu_optimization">MENU OPTIMIZATION</span>
+                    </div>
+                    <div class="menu-item-stat">
+                        <div class="item-header">
+                            <h4>Mhajeb</h4>
+                            <span class="badge good" data-i18n="badge_star">Star Item</span>
+                        </div>
+                        <p class="stat-desc" data-i18n="stat_desc_1">High profit, High popularity. Keep promoting.</p>
+                    </div>
+                    <div class="menu-item-stat"
+                        style="margin-top: 16px; border-top: 1px solid var(--border-color); padding-top: 16px;">
+                        <div class="item-header">
+                            <h4>Caesar Salad</h4>
+                            <span class="badge low" data-i18n="badge_underperforming">Underperforming</span>
+                        </div>
+                        <p class="stat-desc" data-i18n="stat_desc_2">Low sales. Consider replacing with "Salad
+                            Mechouia".</p>
+                    </div>
+                </div>
+
+                <!-- Sentiment Analysis -->
+                <div class="chart-card" style="grid-column: 1 / 2;">
+                    <div class="card-header">
+                        <h3 data-i18n="customer_sentiment">Customer Sentiment</h3>
+                    </div>
+                    <canvas id="sentimentChart"></canvas>
+                    <div class="sentiment-summary">
+                        <p class="positive">"Great service and authentic taste!"</p>
+                        <p class="negative">"Wait time was a bit long on Friday."</p>
+                    </div>
+                </div>
+
+                <!-- Peak Hours -->
+                <div class="chart-card" style="grid-column: 2 / 4;">
+                    <div class="card-header">
+                        <h3 data-i18n="peak_hours">Peak Hours Analysis</h3>
+                    </div>
+                    <canvas id="peakHoursChart"></canvas>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // AI Page Specific Charts
+        document.addEventListener('DOMContentLoaded', function () {
+            // Forecast Chart
+            const ctxForecast = document.getElementById('forecastChart').getContext('2d');
+            new Chart(ctxForecast, {
+                type: 'line',
+                data: {
+                    labels: ['Thu', 'Fri', 'Sat', 'Sun', 'Mon'],
+                    datasets: [{
+                        label: 'Predicted Orders',
+                        data: [45, 60, 95, 85, 50],
+                        borderColor: '#00E676',
+                        backgroundColor: 'rgba(0, 230, 118, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }, {
+                        label: 'Avg Orders',
+                        data: [40, 50, 60, 55, 45],
+                        borderColor: '#9ca3af',
+                        borderDash: [5, 5],
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: true, labels: { color: '#fff' } } },
+                    scales: {
+                        y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#9ca3af' } },
+                        x: { grid: { display: false }, ticks: { color: '#9ca3af' } }
+                    }
+                }
+            });
+
+            // Sentiment Chart
+            const ctxSentiment = document.getElementById('sentimentChart').getContext('2d');
+            new Chart(ctxSentiment, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Positive', 'Neutral', 'Negative'],
+                    datasets: [{
+                        data: [75, 20, 5],
+                        backgroundColor: ['#00E676', '#2979FF', '#FF1744'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom', labels: { color: '#fff' } } }
+                }
+            });
+
+            // Peak Hours Chart
+            const ctxPeak = document.getElementById('peakHoursChart').getContext('2d');
+            new Chart(ctxPeak, {
+                type: 'bar',
+                data: {
+                    labels: ['12PM', '2PM', '4PM', '6PM', '8PM', '10PM'],
+                    datasets: [{
+                        label: 'Occupancy %',
+                        data: [80, 40, 30, 60, 95, 70],
+                        backgroundColor: '#2979FF',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#9ca3af' } },
+                        x: { grid: { display: false }, ticks: { color: '#9ca3af' } }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

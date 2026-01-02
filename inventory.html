@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartEat - Inventory</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <span class="material-symbols-rounded logo-icon">restaurant_menu</span>
+                <h1 class="logo-text">SmartEat</h1>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <span class="material-symbols-rounded">dashboard</span>
+                    <span data-i18n="nav_dashboard">Dashboard</span>
+                </a>
+                <a href="inventory.html" class="nav-item active">
+                    <span class="material-symbols-rounded">inventory_2</span>
+                    <span>Inventory</span>
+                </a>
+                <a href="ai-insights.html" class="nav-item ai-feature">
+                    <span class="material-symbols-rounded">psychology</span>
+                    <span>AI Insights</span>
+                    <span class="badge-ai">NEW</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <span class="material-symbols-rounded">orders</span>
+                    <span>Orders</span>
+                </a>
+                <a href="team.html" class="nav-item">
+                    <span class="material-symbols-rounded">groups</span>
+                    <span>Team</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Chef+Ahmed&background=0D8ABC&color=fff" alt="Profile"
+                        class="avatar">
+                    <div class="user-info">
+                        <p class="user-name">Chef Ahmed</p>
+                        <p class="user-role">Manager</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="page-title">
+                    <h2 data-i18n="inventory_title">Inventory Management</h2>
+                </div>
+
+                <div class="top-actions">
+                    <button class="btn-primary">
+                        <span class="material-symbols-rounded">add</span>
+                        <span data-i18n="btn_add_item">Add Item</span>
+                    </button>
+                    <button class="icon-btn">
+                        <span class="material-symbols-rounded">notifications</span>
+                        <span class="badge-dot"></span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Inventory Content -->
+            <div class="dashboard-grid">
+
+                <!-- Smart Restock Alert -->
+                <div class="ai-insight-card" style="grid-column: 1 / -1;">
+                    <div class="ai-header">
+                        <div class="ai-label">
+                            <span class="material-symbols-rounded">auto_awesome</span>
+                            <span data-i18n="smart_restock">SMART RESTOCK SUGGESTION</span>
+                        </div>
+                    </div>
+                    <div class="ai-body">
+                        <h3>Low Stock Alert: Spices & Grains</h3>
+                        <p>Based on next week's menu (Couscous Friday), you will need <strong>5kg more Couscous</strong>
+                            and
+                            <strong>2kg Ras el Hanout</strong>.
+                        </p>
+                    </div>
+                    <div class="ai-actions">
+                        <button class="btn-primary" onclick="simulateAction('Order sent to supplier!')">
+                            <span class="material-symbols-rounded">send</span>
+                            <span data-i18n="btn_restock">Send Order to Supplier</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Inventory Table -->
+                <div class="chart-card" style="grid-column: 1 / -1; height: auto;">
+                    <div class="card-header">
+                        <h3 data-i18n="stock_levels_title">Stock Levels</h3>
+                        <div class="search-bar" style="width: 250px;">
+                            <span class="material-symbols-rounded">search</span>
+                            <input type="text" placeholder="Search items..." data-i18n="search_items">
+                        </div>
+                    </div>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="th_item">Item Name</th>
+                                <th data-i18n="th_category">Category</th>
+                                <th data-i18n="th_stock">Stock Level</th>
+                                <th data-i18n="th_status">Status</th>
+                                <th data-i18n="th_supplier">Supplier</th>
+                                <th data-i18n="th_actions">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="item-name">
+                                        <span class="material-symbols-rounded item-icon">grain</span>
+                                        Frik (Green Wheat)
+                                    </div>
+                                </td>
+                                <td>Grains</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="fill low" style="width: 20%;"></div>
+                                    </div>
+                                    <span class="stock-text">2.5 kg left</span>
+                                </td>
+                                <td><span class="badge low">Low Stock</span></td>
+                                <td>El Baraka Spices</td>
+                                <td><button class="btn-sm">Restock</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="item-name">
+                                        <span class="material-symbols-rounded item-icon">egg</span>
+                                        Eggs (Large)
+                                    </div>
+                                </td>
+                                <td>Dairy</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="fill good" style="width: 85%;"></div>
+                                    </div>
+                                    <span class="stock-text">120 units</span>
+                                </td>
+                                <td><span class="badge good">Good</span></td>
+                                <td>Local Farm</td>
+                                <td><button class="btn-sm">Restock</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="item-name">
+                                        <span class="material-symbols-rounded item-icon">set_meal</span>
+                                        Lamb Meat
+                                    </div>
+                                </td>
+                                <td>Meat</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="fill medium" style="width: 45%;"></div>
+                                    </div>
+                                    <span class="stock-text">15 kg</span>
+                                </td>
+                                <td><span class="badge medium">Medium</span></td>
+                                <td>Boucherie Centrale</td>
+                                <td><button class="btn-sm">Restock</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="item-name">
+                                        <span class="material-symbols-rounded item-icon">local_pizza</span>
+                                        Cheese (Mozzarella)
+                                    </div>
+                                </td>
+                                <td>Dairy</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="fill good" style="width: 90%;"></div>
+                                    </div>
+                                    <span class="stock-text">8 kg</span>
+                                </td>
+                                <td><span class="badge good">Good</span></td>
+                                <td>Soummam</td>
+                                <td><button class="btn-sm">Restock</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
